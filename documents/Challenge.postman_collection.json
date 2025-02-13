@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "7803168d-3132-4db0-9dc5-a2c0f7692e67",
+		"name": "Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "307271"
+	},
+	"item": [
+		{
+			"name": "createLoan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJjdXN0b21lcklkIjoxMDQsInVzZXJJZCI6NCwiaWF0IjoxNzM5MzkyNDI5LCJleHAiOjE3Mzk0Nzg4Mjl9.FMInjQUiaSsPRfhuSklcIr6M7opjy-5jaBdHacAhrOI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\":103,\n    \"loanAmount\":6000,\n    \"interestRate\":0.1,\n    \"numberOfInstallments\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/loans/create"
+			},
+			"response": []
+		},
+		{
+			"name": "payLoan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJjdXN0b21lcklkIjoxMDMsInVzZXJJZCI6MywiaWF0IjoxNzM5NDAyMDM5LCJleHAiOjE3Mzk0ODg0Mzl9.gatuzzdQZNUaGuQYLxgxo7WXoRaEk_q-IqRjvVwb5nI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanId\":1,\n    \"amountToPay\": 5000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/loans/pay"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\" : 4,\n    \"password\": \"customer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/user/login"
+			},
+			"response": []
+		},
+		{
+			"name": "getLoans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJjdXN0b21lcklkIjoxMDMsInVzZXJJZCI6MywiaWF0IjoxNzM5NDAyMDM5LCJleHAiOjE3Mzk0ODg0Mzl9.gatuzzdQZNUaGuQYLxgxo7WXoRaEk_q-IqRjvVwb5nI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/loans/customer/103?isPaid=false",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"customer",
+						"103"
+					],
+					"query": [
+						{
+							"key": "isPaid",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInstallments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJjdXN0b21lcklkIjoxMDMsInVzZXJJZCI6MywiaWF0IjoxNzM5NDAyMDM5LCJleHAiOjE3Mzk0ODg0Mzl9.gatuzzdQZNUaGuQYLxgxo7WXoRaEk_q-IqRjvVwb5nI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/loans/1/installments"
+			},
+			"response": []
+		}
+	]
+}
